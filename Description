@@ -1,0 +1,151 @@
+Cell output 10 
+1. **Import the `os` module**: This module provides a way of using operating system-dependent functionality like reading or writing to the file system.
+
+2. Define the relative path: The relative path to the file is set as `dataset/kddcup.names`.
+
+3. **Construct the full path**: The `os.path.join(os.getcwd(), relative_path)` constructs the full path to the file by combining the current working directory (`os.getcwd()`) and the relative path.
+
+4. **Open and read the file**: 
+    - The `with open(full_path, 'r') as f:` statement opens the file in read mode (`'r'`).
+    - The `f.read()` method reads the entire content of the file.
+    - The `print(f.read())` statement prints the content of the file to the console.
+
+If you execute this script, the output will be the entire text content of the `kddcup.names` file. Since I don't have access to the actual file content, I can't specify exactly what it will display, but it will show whatever text is contained within `kddcup.names`.
+
+cell output 11: 
+The provided code processes a string of column names and prepares a list of columns with an additional target column. Let's break down what each part does:
+
+1. **Multi-line string of columns**: 
+    ```python
+    cols = """duration,
+    protocol_type,
+    service,
+    flag,
+    src_bytes,
+    dst_bytes,
+    land,
+    wrong_fragment,
+    urgent,
+    hot,
+    num_failed_logins,
+    logged_in,
+    num_compromised,
+    root_shell,
+    su_attempted,
+    num_root,
+    num_file_creations,
+    num_shells,
+    num_access_files,
+    num_outbound_cmds,
+    is_host_login,
+    is_guest_login,
+    count,
+    srv_count,
+    serror_rate,
+    srv_serror_rate,
+    rerror_rate,
+    srv_rerror_rate,
+    same_srv_rate,
+    diff_srv_rate,
+    srv_diff_host_rate,
+    dst_host_count,
+    dst_host_srv_count,
+    dst_host_same_srv_rate,
+    dst_host_diff_srv_rate,
+    dst_host_same_src_port_rate,
+    dst_host_srv_diff_host_rate,
+    dst_host_serror_rate,
+    dst_host_srv_serror_rate,
+    dst_host_rerror_rate,
+    dst_host_srv_rerror_rate"""
+    ```
+
+    This variable `cols` contains a multi-line string where each line represents a column name separated by commas.
+
+2. **Initialize an empty list**:
+    ```python
+    columns = []
+    ```
+
+    This `columns` list will store the cleaned column names.
+
+3. **Split the string by commas and strip whitespace**:
+    ```python
+    for c in cols.split(','):
+        if c.strip():
+            columns.append(c.strip())
+    ```
+
+    - `cols.split(',')` splits the string `cols` by commas into a list of column names.
+    - The `for` loop iterates over each column name.
+    - `c.strip()` removes any leading or trailing whitespace from the column name.
+    - If the stripped column name is not empty (`if c.strip():`), it is appended to the `columns` list.
+
+4. **Add 'target' to the list of columns**:
+    ```python
+    columns.append('target')
+    ```
+
+    This appends the string `'target'` to the end of the `columns` list.
+
+5. **Print the length of the list**:
+    ```python
+    print(len(columns))
+    ```
+
+    This prints the total number of columns in the `columns` list after adding the `'target'` column.
+
+### Summary
+
+The code processes the `cols` string to create a cleaned list of column names, including a final `'target'` column, and prints the total number of columns.
+
+### Output
+
+- The `columns` list will contain all the stripped column names from the `cols` string plus an additional `'target'` column.
+- The `print(len(columns))` statement will output the total number of columns in the final `columns` list.
+
+Given the initial columns string, there are 41 column names plus the additional `'target'` column, making a total of 42 columns. So, the output will be:
+
+```
+42
+```
+
+cell 12:
+The provided code reads and prints the contents of a file named `training_attack_types` located in the `dataset` directory, which is specified relative to the current working directory. Here is a detailed breakdown of what the code does:
+
+1. **Import the `os` module**: 
+    ```python
+    import os
+    ```
+    The `os` module is used to interact with the operating system and handle paths in a way that is portable across different operating systems.
+
+2. **Define the relative path**:
+    ```python
+    relative_path = 'dataset/training_attack_types'
+    ```
+    This variable `relative_path` contains the path to the file `training_attack_types` relative to the current working directory.
+
+3. **Construct the full path**:
+    ```python
+    full_path = os.path.join(os.getcwd(), relative_path)
+    ```
+    - `os.getcwd()` gets the current working directory where the script is being run.
+    - `os.path.join(os.getcwd(), relative_path)` combines the current working directory with the relative path to create the full path to the file `training_attack_types`.
+
+4. **Open and read the file**:
+    ```python
+    with open(full_path, 'r') as f:
+        print(f.read())
+    ```
+    - `with open(full_path, 'r') as f:` opens the file in read mode (`'r'`) and ensures that the file is properly closed after it has been read.
+    - `f.read()` reads the entire content of the file.
+    - `print(f.read())` prints the content of the file to the console.
+
+### Summary
+- **File Path Construction**: Constructs the full path to the file `training_attack_types` in the `dataset` directory using the current working directory.
+- **File Reading**: Opens the file, reads its content, and prints it to the console.
+
+### Example Scenario
+If the current working directory is `/home/user/Desktop/Intrusion-Detection-System`, the full path constructed would be `/home/user/Desktop/Intrusion-Detection-System/dataset/training_attack_types`.
+
+The output will be the entire text content of the `training_attack_types` file, displayed in the console. Since I don't have access to the actual file content, I can't specify exactly what it will display, but it will show whatever text is contained within `training_attack_types`.
